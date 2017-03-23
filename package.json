@@ -1,0 +1,11 @@
+{
+  "name": "insta-clone",
+  "version": "0.0.1",
+  "description": "Various implementations of an instagram feed clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Davis Archibald",
+  "license": "ISC"
+}
