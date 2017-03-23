@@ -2,10 +2,65 @@
   "name": "insta-clone-react",
   "version": "0.0.1",
   "description": "Instagram feed clone built in react",
-  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "concurrently": "^3.1.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "graceful-fs": "^4.1.11",
+    "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "less-plugin-clean-css": "^1.5.1",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.2",
+    "normalize.css": "^5.0.0",
+    "process-env": "^1.1.0",
+    "react": "^15.4.2",
+    "react-addons-update": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.13.1",
+    "thunk": "^0.0.1",
+    "webpack": "^1.14.0"
+  },
+  "engines": {
+    "node": "6.9.1"
+  },
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "build:production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./config/webpack.production.config.js",
+      "build:dev": "webpack --display-error-details --config ./config/webpack.dev.config.js",
+      "lint": "eslint ./src",
+      "lint:fix": "eslint ./src --fix",
+      "test": "mocha ./src/**/*.test.js --compilers babel-register",
+      "dev": "concurrently \"webpack -w --display-error-details --config ./config/webpack.dev.config.js\" \"node server.js\""
   },
   "author": "Davis Archibald",
-  "license": "ISC"
+  "license": "ISC",
+  "config": {
+      "port": 3000
+  }
 }
