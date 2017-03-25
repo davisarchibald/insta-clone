@@ -21,7 +21,9 @@ function handleText(text) {
 export default function Comment({ text, username }) {
     return (
         <p className="comment">
-            <strong>{username} </strong>
+            <strong>
+                <a href={`${window.location.origin}/${username}/`}>{username} </a>
+            </strong>
             {handleText(text)}
         </p>
     );
