@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-// import Heart from '../Heart';
+import Heart from '../Heart';
 
 export default class PostFooter extends Component {
     static propTypes = {
@@ -39,7 +39,6 @@ export default class PostFooter extends Component {
                 <p className="postLikes">
                     {!likes ? null : `${likes} likes`}
                 </p>
-                {/* Comments */}
                 <div className="postComments">
                     {
                         comments.map(comment => (
@@ -51,7 +50,10 @@ export default class PostFooter extends Component {
                     }
                 </div>
                 <div className="postActions">
-                    {/* Heart */}
+                    <Heart
+                      isLiked={isLiked}
+                      favoriteImage={favoriteImage}
+                    />
                     <input
                       type="text"
                       value={this.state.commentInput}
