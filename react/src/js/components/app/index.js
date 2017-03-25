@@ -4,8 +4,17 @@ import Feed from '../feed';
 
 class App extends Component {
     static propTypes = {
-        feed: PropTypes.arrayOf,
-        userInfo: PropTypes.shape
+        feed: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number,
+            username: PropTypes.string,
+            timeSincePost: PropTypes.string,
+            likes: PropTypes.number,
+            isLiked: PropTypes.bool,
+            comments: PropTypes.arrayOf,
+            link: PropTypes.string,
+            image: PropTypes.string
+        })),
+        userInfo: PropTypes.shape()
     };
     static defaultProps = {
         feed: [],

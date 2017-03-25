@@ -14,6 +14,14 @@ export default function Feed({ posts, userInfo }) {
                   post={post}
                   userInfo={userInfo}
                   key={post.id}
+                  saveImageToFavorites={() => {
+                      // hook this up with an action
+                      console.log(post.id);
+                  }}
+                  saveComment={(comment) => {
+                      // hook this up with an action
+                      console.log(post.id, comment);
+                  }}
                 />
             ))}
         </section>

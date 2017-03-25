@@ -1,10 +1,14 @@
 const initialState = [{
-    id: 1,
+    id: 48941,
     username: 'bobbarker',
     timeSincePost: '15h',
     likes: 25,
     isLiked: false,
-    comments: [],
+    comments: [{
+        username: 'billybobthorton',
+        text: 'Rad photo!',
+        id: 58967889
+    }],
     link: 'https://www.instagram.com/p/BRUhIGIFego/',
     image: 'https://instagram.fsnc1-1.fna.fbcdn.net/t51.2885-15/e35/17125662_1257127117690209_5723126681644826624_n.jpg'
 }];

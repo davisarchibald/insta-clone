@@ -10,8 +10,8 @@ export default function PostFooter({ likes, isLiked, comments, favoriteImage }) 
             <div className="postComments">
                 {
                     comments.map(comment => (
-                        <p>
-                            <strong>{comment.username}</strong>
+                        <p key={comment.id}>
+                            <strong>{comment.username} </strong>
                             {comment.text}
                         </p>
                     ))
@@ -27,7 +27,11 @@ export default function PostFooter({ likes, isLiked, comments, favoriteImage }) 
 }
 
 PostFooter.propTypes = {
-    comments: PropTypes.arrayOf.isRequired,
+    comments: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        text: PropTypes.string,
+        username: PropTypes.string
+    })).isRequired,
     favoriteImage: PropTypes.func.isRequired,
     isLiked: PropTypes.bool.isRequired,
     likes: PropTypes.number.isRequired

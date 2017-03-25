@@ -3,13 +3,11 @@ import PostHeader from './PostHeader';
 import PostImage from './PostImage';
 import PostFooter from './PostFooter';
 
-// post Footer
-    // comments, like, actions
-
-// TODO: Build out actions and reducers for posts
-// dynamic actions handled here should include save like, save comment, handle footer actions
-
-export default function Post({ post, userInfo, saveImageToFavorites }) {
+export default function Post({
+    post,
+    saveImageToFavorites,
+    saveComment
+}) {
     if (!post) return null;
     return (
         <section>
@@ -22,17 +20,15 @@ export default function Post({ post, userInfo, saveImageToFavorites }) {
             />
             <PostImage
               image={post.image}
-              favoriteImage={() => {
-                  // call action to save to favorites
-                  saveImageToFavorites(post.id, userInfo);
-              }}
+              favoriteImage={saveImageToFavorites}
             />
             <PostFooter
               likes={post.likes}
               isLiked={post.isLiked}
               comments={post.comments}
-              favoriteImage={() => {
-                  saveImageToFavorites(post.id, userInfo);
+              favoriteImage={saveImageToFavorites}
+              saveComment={(event) => {
+                  saveComment(event.target.value);
               }}
             />
         </section>
@@ -46,12 +42,14 @@ Post.propTypes = {
         timeSincePost: PropTypes.string,
         likes: PropTypes.number,
         isLiked: PropTypes.bool,
-        comments: PropTypes.arrayOf,
+        comments: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number,
+            text: PropTypes.string,
+            username: PropTypes.string
+        })),
         link: PropTypes.string,
         image: PropTypes.string
     }).isRequired,
-    saveImageToFavorites: PropTypes.func.isRequired,
-    userInfo: PropTypes.shape({
-        userId: PropTypes.number
-    }).isRequired
+    saveComment: PropTypes.func.isRequired,
+    saveImageToFavorites: PropTypes.func.isRequired
 };
