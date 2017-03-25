@@ -29,3 +29,16 @@ export function toggleLike(postId, isLiked) {
         value: !isLiked
     };
 }
+
+export const ADD_COMMENT = 'feed/ADD_COMMENT';
+export function addComment(text, username, id, postId) {
+    return {
+        type: ADD_COMMENT,
+        comment: {
+            text,
+            username,
+            id
+        },
+        postId
+    };
+}

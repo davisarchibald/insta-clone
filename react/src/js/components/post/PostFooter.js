@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Heart from '../Heart';
+import Comment from '../Comment';
 
 export default class PostFooter extends Component {
     static propTypes = {
@@ -16,7 +17,8 @@ export default class PostFooter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentInput: ''
+            commentInput: '',
+            commentInputId: Math.floor(Math.random() * (99999999 - 1) + 1)
         };
     }
     handleCommentInputChange = (event) => {
@@ -26,9 +28,10 @@ export default class PostFooter extends Component {
     };
     handleSave = (event) => {
         if (event.key === 'Enter') {
-            this.props.saveComment(event);
+            this.props.saveComment(this.state.commentInput, this.state.commentInputId);
             this.setState({
-                commentInput: ''
+                commentInput: '',
+                commentInputId: Math.floor(Math.random() * (99999999 - 1) + 1)
             });
         }
     };
@@ -42,10 +45,11 @@ export default class PostFooter extends Component {
                 <div className="postComments">
                     {
                         comments.map(comment => (
-                            <p key={comment.id}>
-                                <strong>{comment.username} </strong>
-                                {comment.text}
-                            </p>
+                            <Comment
+                              key={comment.id}
+                              username={comment.username}
+                              text={comment.text}
+                            />
                         ))
                     }
                 </div>

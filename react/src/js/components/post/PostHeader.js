@@ -1,6 +1,13 @@
 import React, { PropTypes } from 'react';
 
-export default function PostHeader({ username, userphoto, timeSincePost, linkToPost, linkToUser, location }) {
+export default function PostHeader({
+    username,
+    userphoto,
+    timeSincePost,
+    linkToPost,
+    linkToUser,
+    location
+}) {
     return (
         <header>
             <a href={linkToUser} className="userInfo">

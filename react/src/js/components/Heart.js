@@ -7,7 +7,7 @@ export default function Heart({ isLiked, favoriteImage }) {
     return (
         <span
           className={`heart${isLiked ? ' fill' : ''}`}
-          onDoubleClick={favoriteImage}
+          onClick={favoriteImage}
         >
             {isLiked ? LIKED_HEART : EMPTY_HEART}
         </span>

@@ -27,9 +27,7 @@ export default function Post({
               isLiked={post.isLiked}
               comments={post.comments}
               favoriteImage={saveImageToFavorites}
-              saveComment={(event) => {
-                  saveComment(event.target.value);
-              }}
+              saveComment={saveComment}
             />
         </section>
     );
