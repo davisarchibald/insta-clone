@@ -5,6 +5,7 @@ const app = express();
 app.set('port', (process.env.PORT || 3000));
 
 function handleFeed(req,res) {
+    // returning hard-coded data is temporary, ideally this would be a call to a DB
     const data = [{
         id: 48941,
         username: 'bobbarker',
@@ -20,13 +21,13 @@ function handleFeed(req,res) {
         image: 'https://instagram.fsnc1-1.fna.fbcdn.net/t51.2885-15/e35/17125662_1257127117690209_5723126681644826624_n.jpg'
     }, {
         id: 75809,
-        username: 'bobbarker',
+        username: 'billybobthorton',
         timeSincePost: '24h',
         likes: 50,
         isLiked: true,
         comments: [{
-            username: 'billybobthorton',
-            text: 'Rad photo!',
+            username: 'bobbarker',
+            text: 'Tubular dude! Mud FTW!',
             id: 25328683628638
         }],
         link: 'https://www.instagram.com/p/BRUhIGIFego/',

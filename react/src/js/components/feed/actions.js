@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
 export const RECEIVE_POSTS = 'feed/RECEIVE_POSTS';
-
 export function recievePosts(posts) {
     return {
         type: RECEIVE_POSTS,
@@ -19,5 +18,14 @@ export function fetchPosts(index) {
                 }
             })
         ));
+    };
+}
+
+export const TOGGLE_LIKE = 'feed/TOGGLE_LIKE';
+export function toggleLike(postId, isLiked) {
+    return {
+        type: TOGGLE_LIKE,
+        postId,
+        value: !isLiked
     };
 }

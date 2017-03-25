@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Post from '../post';
-import { fetchPosts } from './actions';
+import { fetchPosts, toggleLike } from './actions';
 
 // dynamic actions handled here should be infinite scroll
 export default class Feed extends Component {
@@ -36,8 +36,7 @@ export default class Feed extends Component {
                       userInfo={userInfo}
                       key={post.id}
                       saveImageToFavorites={() => {
-                          // hook this up with an action
-                          console.log(post.id);
+                          this.props.dispatch(toggleLike(post.id, post.isLiked));
                       }}
                       saveComment={(comment) => {
                           // hook this up with an action
