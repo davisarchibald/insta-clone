@@ -23,7 +23,7 @@ export default function Post({ data }) {
               image={data.image}
               favoriteImage={() => {
                   // call action to save to favorites
-                  saveImageToFavorites(data.image, userInfo);
+                  saveImageToFavorites(data.id, userInfo);
               }}
             />
         </section>
