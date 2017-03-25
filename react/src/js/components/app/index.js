@@ -4,6 +4,7 @@ import Feed from '../feed';
 
 class App extends Component {
     static propTypes = {
+        dispatch: PropTypes.func.isRequired,
         feed: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number,
             username: PropTypes.string,
@@ -27,6 +28,7 @@ class App extends Component {
                 <Feed
                   posts={this.props.feed}
                   userInfo={this.props.userInfo}
+                  dispatch={this.props.dispatch}
                 />
                 {/* <Footer /> */}
             </section>
