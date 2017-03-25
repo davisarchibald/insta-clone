@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-export default function PostHeader({ username, userphoto, timeSincePost, linkToPost, location }) {
+export default function PostHeader({ username, userphoto, timeSincePost, linkToPost, linkToUser, location }) {
     return (
         <header>
-            <a href={linkToPost} className="userInfo">
+            <a href={linkToUser} className="userInfo">
                 <img src={userphoto} alt="" className="userImage" />
                 <span className="userName">{username}</span>
                 {location ? <span className="postLocation">{location}</span> : null}
@@ -17,12 +17,15 @@ export default function PostHeader({ username, userphoto, timeSincePost, linkToP
 
 PostHeader.propTypes = {
     linkToPost: PropTypes.string.isRequired,
+    linkToUser: PropTypes.string,
     location: PropTypes.string,
-    timeSincePost: PropTypes.string.isRequired,
+    timeSincePost: PropTypes.string,
     username: PropTypes.string.isRequired,
     userphoto: PropTypes.string
 };
 PostHeader.defaultProps = {
     location: null,
-    userphoto: ''
+    linkToUser: '',
+    userphoto: '',
+    timeSincePost: ''
 };

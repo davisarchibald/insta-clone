@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import PostHeader from './PostHeader';
 import PostImage from './PostImage';
+import PostFooter from './PostFooter';
 
 // post Footer
     // comments, like, actions
@@ -8,22 +9,30 @@ import PostImage from './PostImage';
 // TODO: Build out actions and reducers for posts
 // dynamic actions handled here should include save like, save comment, handle footer actions
 
-export default function Post({ data }) {
-    if (!data) return null;
+export default function Post({ post, userInfo, saveImageToFavorites }) {
+    if (!post) return null;
     return (
         <section>
             <PostHeader
-              username={data.username}
-              userphoto={data.userphoto}
-              timeSincePost={data.postTime}
-              linkToPost={data.link}
-              location={data.location}
+              username={post.username}
+              userphoto={post.userphoto}
+              timeSincePost={post.timeSincePost}
+              linkToPost={post.link}
+              location={post.location}
             />
             <PostImage
-              image={data.image}
+              image={post.image}
               favoriteImage={() => {
                   // call action to save to favorites
-                  saveImageToFavorites(data.id, userInfo);
+                  saveImageToFavorites(post.id, userInfo);
+              }}
+            />
+            <PostFooter
+              likes={post.likes}
+              isLiked={post.isLiked}
+              comments={post.comments}
+              favoriteImage={() => {
+                  saveImageToFavorites(post.id, userInfo);
               }}
             />
         </section>
@@ -31,5 +40,18 @@ export default function Post({ data }) {
 }
 
 Post.propTypes = {
-    data: PropTypes.shape.isRequired
+    post: PropTypes.shape({
+        id: PropTypes.number,
+        username: PropTypes.string,
+        timeSincePost: PropTypes.string,
+        likes: PropTypes.number,
+        isLiked: PropTypes.bool,
+        comments: PropTypes.arrayOf,
+        link: PropTypes.string,
+        image: PropTypes.string
+    }).isRequired,
+    saveImageToFavorites: PropTypes.func.isRequired,
+    userInfo: PropTypes.shape({
+        userId: PropTypes.number
+    }).isRequired
 };
