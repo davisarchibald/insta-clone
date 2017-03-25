@@ -10,7 +10,7 @@ export default function Post({
 }) {
     if (!post) return null;
     return (
-        <section>
+        <section className="post">
             <PostHeader
               username={post.username}
               userphoto={post.userphoto}

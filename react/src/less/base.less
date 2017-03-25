@@ -1,0 +1,50 @@
+@import (less) '../../node_modules/normalize.css/normalize.css';
+
+.feed {
+    margin: 0 auto;
+    max-width: 600px;
+    .post {
+        width: 100%;
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        margin-bottom: 60px;
+        footer, header {
+            padding: 14px 20px;
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        header {
+            .timeSincePost {
+                position: absolute;
+                right: 20px;
+            }
+        }
+    }
+    .postImage {
+        img {
+            max-width: 100%;
+        }
+    }
+    .postActions {
+        border-top: 1px solid #e6e6e6;
+        padding-top: 13px;
+        margin-top: 13px;
+        input {
+            border: none;
+            &:focus {
+                outline-color: none;
+            }
+        }
+        .heart svg {
+            margin: 0 10px -5px 0;
+        }
+    }
+}
+.heart {
+    &.fill {
+        fill: #ed4956;
+    }
+}
