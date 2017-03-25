@@ -5,7 +5,9 @@ export default function App(props) {
     return (
         <section>
             {/* <Nav /> */}
-            <Feed />
+            <Feed
+              {...props}
+            />
             {/* <Footer /> */}
         </section>
     );
