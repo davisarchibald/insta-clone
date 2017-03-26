@@ -22,6 +22,13 @@ export default class Feed extends Component {
     };
     componentDidMount() {
         this.props.dispatch(fetchPosts());
+        let index = 1;
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                this.props.dispatch(fetchPosts(index));
+                index+=1;
+            }
+        });
     }
     render() {
         const { posts, userInfo } = this.props;

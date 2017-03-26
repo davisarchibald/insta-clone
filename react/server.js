@@ -7,7 +7,7 @@ app.set('port', (process.env.PORT || 3000));
 function handleFeed(req,res) {
     // returning hard-coded data is temporary, ideally this would be a call to a DB
     const data = [{
-        id: 48941,
+        id: Math.floor(Math.random() * (99999999 - 1) + 1),
         username: 'bobbarker',
         timeSincePost: '15h',
         likes: 25,
@@ -20,7 +20,7 @@ function handleFeed(req,res) {
         link: 'https://www.instagram.com/p/BRUhIGIFego/',
         image: 'https://instagram.fsnc1-1.fna.fbcdn.net/t51.2885-15/e35/17125662_1257127117690209_5723126681644826624_n.jpg'
     }, {
-        id: 75809,
+        id: Math.floor(Math.random() * (99999999 - 1) + 1),
         username: 'billybobthorton',
         timeSincePost: '24h',
         likes: 50,
