@@ -32,14 +32,26 @@
         border-top: 1px solid #e6e6e6;
         padding-top: 13px;
         margin-top: 13px;
+        display: flex;
         input {
+            flex-grow: 1;
             border: none;
+            padding: 10px 0;
             &:focus {
                 outline-color: none;
             }
         }
         .heart svg {
-            margin: 0 10px -5px 0;
+            margin: 8px 10px 0 0;
+        }
+        .actions {
+            cursor: pointer;
+            padding: 0 10px;
+            line-height: 38px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            margin-top: -14px;
         }
     }
 }

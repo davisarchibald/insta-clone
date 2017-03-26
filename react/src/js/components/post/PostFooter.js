@@ -65,7 +65,9 @@ export default class PostFooter extends Component {
                       placeholder="Add a comment..."
                       onKeyPress={this.handleSave}
                     />
-                    {/* dot dot dot */}
+                    <button className="actions">
+                        ...
+                    </button>
                 </div>
             </footer>
         );
