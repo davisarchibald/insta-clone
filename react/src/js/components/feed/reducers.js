@@ -1,6 +1,6 @@
 import { RECEIVE_POSTS, TOGGLE_LIKE, ADD_COMMENT } from './actions';
 
-const initialState = [];
+export const initialState = [];
 
 export default function feed(state = initialState, action) {
     const newState = [...state];
