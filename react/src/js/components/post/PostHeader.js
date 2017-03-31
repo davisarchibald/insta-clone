@@ -11,7 +11,7 @@ export default function PostHeader({
     return (
         <header>
             <a href={linkToUser} className="userInfo">
-                <img src={userphoto} alt="" className="userImage" />
+                <img src={userphoto || 'https://scontent-mxp1-1.cdninstagram.com/t51.2885-19/11906329_960233084022564_1448528159_a.jpg'} alt="" className="userImage" />
                 <span className="userName">{username}</span>
                 {location ? <span className="postLocation">{location}</span> : null}
             </a>

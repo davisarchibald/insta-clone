@@ -1,62 +1,7 @@
 @import (less) '../../node_modules/normalize.css/normalize.css';
-
-.feed {
-    margin: 0 auto;
-    max-width: 600px;
-    .post {
-        width: 100%;
-        border: 1px solid #e6e6e6;
-        border-radius: 3px;
-        margin-bottom: 60px;
-        footer, header {
-            padding: 14px 20px;
-            position: relative;
-        }
-        header {
-            .timeSincePost {
-                position: absolute;
-                right: 20px;
-            }
-        }
-    }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-    .postImage {
-        img {
-            max-width: 100%;
-        }
-    }
-    .postActions {
-        border-top: 1px solid #e6e6e6;
-        padding-top: 13px;
-        margin-top: 13px;
-        display: flex;
-        input {
-            flex-grow: 1;
-            border: none;
-            padding: 10px 0;
-            &:focus {
-                outline: none;
-            }
-        }
-        button:focus {
-            outline: none;
-        }
-        .heart svg {
-            margin: 8px 10px 0 0;
-        }
-        .actions {
-            cursor: pointer;
-            padding: 0 10px;
-            line-height: 38px;
-            border: none;
-            background: none;
-            font-size: 24px;
-            margin-top: -14px;
-        }
-    }
+@import '../js/components/feed/feed.less';
+body {
+    background-color: #fafafa;
 }
 .heart {
     &.fill {
